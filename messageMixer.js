@@ -2,7 +2,7 @@ const MessageMixer = {
 
 };
 
-function countCharacter(inputString, inputCharacter) {
+MessageMixer.countCharacter = function(inputString, inputCharacter) {
     let count = 0;
     let string = inputString.toLowerCase();
     let character = inputCharacter.toLowerCase();
@@ -14,7 +14,7 @@ function countCharacter(inputString, inputCharacter) {
     return count; 
   };
   
-  function capitalizeFirstCharacterOfWords(string) {
+  MessageMixer.capitalizeFirstCharacterOfWords = function(string) {
     let arr = string.split(" ");  
       for (let i = 0; i < arr.length; i++) {  
         let word = arr[i];
@@ -24,7 +24,7 @@ function countCharacter(inputString, inputCharacter) {
   };
   
   
-  function reverseWord(word) {
+  MessageMixer.reverseWord = function(word) {
     return word.split("").reverse().join("");
   };
   
@@ -37,16 +37,16 @@ function countCharacter(inputString, inputCharacter) {
   };
   
   
-  function replaceFirstOccurence(string, toBeReplaced, replaceWith) {
+  MessageMixer.replaceFirstOccurence = function(string, toBeReplaced, replaceWith) {
     return string.replace(toBeReplaced, replaceWith);
   };
   
   
-  function replaceAllOccurrences(string, toBeReplaced, replaceWith) {
+  MessageMixer.replaceAllOccurrences= function(string, toBeReplaced, replaceWith) {
     return string.split(toBeReplaced).join(replaceWith);
   };
   
-  function encode(string) {
+  MessageMixer.encode = function (string) {
     let replacementObject = { "a": "@", "s": "$", "i": "!", "o":"0" };
       for (let key in replacementObject) {
         string = replaceAllOccurrences(string, key, replacementObject[key]); 

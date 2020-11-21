@@ -28,10 +28,10 @@ MessageMixer.countCharacter = function(inputString, inputCharacter) {
     return word.split("").reverse().join("");
   };
   
-  function reverseAllWords(sentence) {
+  MessageMixer.reverseAllWords= function(sentence) {
     let words = sentence.split(" ");
       for (let i = 0; i < words.length; i++) {
-        words[i] = reverseWord(words[i]);
+        words[i] = MessageMixer.reverseWord(words[i]);
       }
      return words.join(" ");
   };
@@ -47,12 +47,22 @@ MessageMixer.countCharacter = function(inputString, inputCharacter) {
   };
   
   MessageMixer.encode = function (string) {
-    let replacementObject = { "a": "@", "s": "$", "i": "!", "o":"0" };
+    const replacementObject = { "a": "@", "s": "$", "i": "!", "o":"0" };
       for (let key in replacementObject) {
-        string = replaceAllOccurrences(string, key, replacementObject[key]); 
+        string = MessageMixer.replaceAllOccurrences(string, key, replacementObject[key]); 
       }	
       return string;
   };
+
+  MessageMixer.palindrome =  function(str){
+      return str + " " + MessageMixer.reverseWord(str);
+  }
+
+  MessageMixer.pigLatin = function(sentence,character){
+      return sentence.split('').join(character + " ")
+  }
+
+module.exports = MessageMixer;
   
   
   
